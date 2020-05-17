@@ -13,8 +13,8 @@
  
 #VNCUSER="change_to_current_user_before_running"
 VNCUSER=testvnc
-sudo adduser testvnc && sudo usermod -aG sudo testvnc && su --login testvnc
-sudo ls
+#sudo adduser testvnc && sudo usermod -aG sudo testvnc && su --login testvnc
+#sudo ls
 
 #----------DO NOT EDIT BELOW THIS LINE---------------
  
