@@ -12,49 +12,45 @@
  
  
 #VNCUSER="change_to_current_user_before_running"
-VNCUSER=root
- 
- 
+VNCUSER=testvnc
+sudo adduser testvnc && sudo usermod -aG sudo testvnc && su --login testvnc
+sudo ls
+
 #----------DO NOT EDIT BELOW THIS LINE---------------
  
-echo "Make sure to change the VNCUSER variable first!"
-sleep 3
-echo "You will need to enter a VNC password after the package installation"
-sleep 5
-echo "Updating System Repostitories"
 apt-get -y update
-sleep 1
+
 echo "Starting VNC Installation"
-sleep 1
-apt-get -y install xfce4 xfce4-goodies tightvncserver
-sleep 1
+
+apt-get -y install xfce4 xfce4-goodies tightvncserver xfonts-100dpi xfonts-100dpi-transcoded xfonts-75dpi \
+xfonts-75dpi-transcoded xfonts-base autocutsel chromium-browser -y
+
 echo "Packages installed, starting VNC configurations"
-sleep 1
 sudo -u $VNCUSER vncserver
-sleep 1
 sudo -u $VNCUSER vncserver -kill :1
-sleep 1
 sudo -u $VNCUSER mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
-sleep 1
 sudo -u $VNCUSER mv configs/xfce4_configs ~/.vnc/xstartup
-sleep 1
 sudo -u $VNCUSER chmod +x ~/.vnc/xstartup
-sleep 1
 sudo -u $VNCUSER vncserver
-sleep 1
 sudo -u $VNCUSER vncserver -kill :1
-sleep 1
+
 echo "VNC Server Successfully Installed!"
 echo "Start VNC Server with the following command"
-sleep 1
+
 echo " "
 echo "       vncserver      "
 echo " "
-sleep 1
+
 echo " "
-sleep 1
+
+echo "Download makemkv"
+wget "https://www.makemkv.com/download/makemkv-bin-1.15.1.tar.gz"
+tar xf makemkv-bin-1.15.1.tar.gz
+cp makemkv-bin-1.15.1\bin\amd64\makemkvcon .
+
+
 echo "All Credit goes to Leslie Suhm!"
-sleep 1
+
 echo "Check us out at Github!"
-sleep 1
+
 echo "https://github.com/lesliesuhm/VNC-Server-AAI"
