@@ -23,7 +23,9 @@ apt-get -y update
 echo "Starting VNC Installation"
 
 apt-get -y install xfce4 xfce4-goodies tightvncserver xfonts-100dpi xfonts-100dpi-transcoded xfonts-75dpi \
-xfonts-75dpi-transcoded xfonts-base autocutsel chromium-browser -y
+xfonts-75dpi-transcoded xfonts-base autocutsel chromium-browser git -y
+
+git clone https://github.com/shadow443/VNC-Server-AAI.git && cd VNC-Server-AAI
 
 echo "Packages installed, starting VNC configurations"
 sudo -u $VNCUSER vncserver
