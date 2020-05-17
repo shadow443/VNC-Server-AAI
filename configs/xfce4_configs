@@ -1,4 +1,5 @@
 #!/bin/bash
 xrdb $HOME/.Xresources
+autocutsel -fork
 startxfce4 &
 
